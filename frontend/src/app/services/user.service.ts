@@ -13,7 +13,6 @@ export class UserService {
   ) { }
 
   create(user: User){
-    console.log('create');
     return this.http.post( AppConfig.apiUrl + '/user/create', user);
   }
 }

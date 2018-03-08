@@ -26,12 +26,19 @@ export class RegisterComponent implements OnInit {
 
   register(){
     
-    console.log(this.model);
+    //console.log(this.model);
 
     this.userService.create(this.model)
         .subscribe(
           data => {
-            this.flashMessageService.success('Registration successful');
+            //console.log(data.exist);
+            console.log(data);
+            // if(res && res.data){
+            //   console.log('existing');
+            // }else{
+            //   this.flashMessageService.success('Registration successful');
+            // }
+            
           },
           error => {
             this.flashMessageService.error(error);            

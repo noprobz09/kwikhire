@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 require('../models/user');
 
@@ -25,7 +26,7 @@ module.exports = (app) => {
                     fullname: req.body.fullname,
                     email: req.body.email,
                     phone: req.body.phone,
-                    password: req.body.password,
+                    password: bcrypt.hashSync(req.body.password, 10),
                 });
 
                 try{
