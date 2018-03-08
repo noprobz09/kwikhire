@@ -1,0 +1,119 @@
+
+<div class="row">
+  <h2>Create your KwikHire account</h2>
+  <form novalidate #f="ngForm" (ngSubmit)="register()">
+    <div class="row">
+     
+      <div class="clearfix">
+        <div class="input-field col s6">
+          <input id="company-name" type="text" 
+            name="company"
+            [(ngModel)]="model.company"
+            #companyName="ngModel"
+            minlength="2"
+            required
+          />
+          <label for="company-name">Company Name</label>
+          
+          <div class="alert alert-danger" *ngIf="companyName.errors?.required && companyName.touched">Company Name is required</div>
+          <div class="alert alert-danger" *ngIf="companyName.errors?.minlength && companyName.touched">Minimum length is 2.</div>
+        
+        </div>
+        <div class="input-field col s6">
+          <input id="full-name" type="text" 
+            name="fullname"
+            [(ngModel)]="model.fullname"
+            #fullName="ngModel"
+            minlength="2"
+            required
+          />
+          <label for="full-name">Full Name</label>
+
+          <div class="alert alert-danger" *ngIf="fullName.errors?.required && fullName.touched">Full Name is required</div>
+          <div class="alert alert-danger" *ngIf="fullName.errors?.minlength && fullName.touched">Minimum length is 2.</div>
+          
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <div class="input-field col s6">
+          <input id="email" type="email" 
+            name="email"
+            [(ngModel)]="model.email"
+            #emailAddress="ngModel"
+            required
+          />
+          <label for="email">Email Address</label>
+
+          <div class="alert alert-danger" *ngIf="emailAddress.errors?.required && emailAddress.touched">Email Address is required</div>
+          
+        </div>
+        <div class="input-field col s6">
+          <input id="phone" type="text" 
+            name="phone"
+            [(ngModel)]="model.phone"
+            #contactPhone="ngModel"
+            minlength="2"
+            required
+          />
+          <label for="phone">Phone</label>
+
+          <div class="alert alert-danger" *ngIf="contactPhone.errors?.required && contactPhone.touched">Phone Name is required</div>
+          <div class="alert alert-danger" *ngIf="contactPhone.errors?.minlength && contactPhone.touched">Minimum length is 2.</div>
+
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <div class="input-field col s6">
+          <input id="password" type="password"
+            name="password"
+            [(ngModel)]="model.password"
+            #pass="ngModel"
+            minlength="4"
+            required
+          />
+          <label for="password">Password</label>
+
+          <div class="alert alert-danger" *ngIf="pass.errors?.required && pass.touched">Password Name is required</div>
+          <div class="alert alert-danger" *ngIf="pass.errors?.minlength && pass.touched">Minimum length is 4.</div>
+
+        </div>
+        <div class="input-field col s6">
+          <input id="confirm-password" type="password" 
+            name="model.confirmpassword"
+            [(ngModel)]="confirmpassword"
+            #confirmPass="ngModel"
+            required
+          />
+          <label for="confirm-password">Confirm Password</label>
+
+          <div class="alert alert-danger" *ngIf="confirmPass.errors?.required && confirmPass.touched">Confirm Password is required</div>
+          <div class="alert alert-danger" *ngIf="pass.value !== confirmPass.value && confirmPass.touched">Password and Confirm Password value does not match.</div>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" 
+          name="agree"
+          [(ngModel)]="model.agree"
+          #termsAgree="ngModel"
+          required 
+        />
+        <label for="filled-in-box">By checking this box, you agree to KwikHire Terms of Use and Privacy Policy</label>
+
+        <div class="alert alert-danger" *ngIf="termsAgree.errors?.required && termsAgree.touched">You need to agree the terms of use and Privacy Policy.</div>
+         
+      </div>
+      
+      <!-- submit btn -->
+      <div class="clearfix">
+        <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+      
+
+    </div>
+  </form>
+</div>
