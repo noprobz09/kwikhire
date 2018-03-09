@@ -26,20 +26,32 @@ export class RegisterComponent implements OnInit {
 
   register(form){
     
-    //console.log(this.model);
+  
+    if( form.valid ){ // if form is valid
+     
+      if(this.model.password !== this.model.confirmpassword ){
 
-    // this.userService.create(this.model)
-    //     .subscribe(
-    //       data => {         
-    //         this.flashMessageService.success('Registration successful');
-    //       },
-    //       err => {
-    //         this.flashMessageService.error(err.error.text);            
-    //       }
-    //     );
+        this.flashMessageService.error('Password and Confirm Password not match!');
 
-    console.log(form);
-    console.log(form.valid);
+      }else{
+
+        //call userservice create
+         this.userService.create(this.model)
+        .subscribe(
+            data => {         
+              this.flashMessageService.success('Registration successful');
+            },
+            err => {
+              this.flashMessageService.error(err.error.text);            
+            }
+          );
+
+      }
+
+    }else{// else throw error
+      this.flashMessageService.success('Some Fields are required to have input');
+    }
+    
     
   }
 

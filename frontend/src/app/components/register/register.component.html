@@ -72,8 +72,6 @@
             [(ngModel)]="model.password"
             #pass="ngModel"
             minlength="4"
-            validateEqual="confirmPass" 
-            reverse="true"
             required
           />
           <label for="password">Password</label>
@@ -88,16 +86,14 @@
             name="confirmpassword"
             [(ngModel)]="model.confirmpassword"
             #confirmPass="ngModel"
-            validateEqual="pass"
-            reverse="false"
+            validateEqualTo="pass"
             required
           />
           <label for="confirm-password">Confirm Password</label>
 
           <div class="alert alert-danger" *ngIf="confirmPass.errors?.required && confirmPass.touched">Confirm Password is required</div>
-          <!-- <div class="alert alert-danger" *ngIf="pass.value !== confirmPass.value && confirmPass.touched">Password and Confirm Password value does not match.</div> -->
-          <div class="alert alert-danger" [hidden]="confirmPass.valid || (confirmPass.pristine && !f.submitted)">Password and Confirm Password value does not match.</div>
-        
+          <div class="alert alert-danger" *ngIf="pass.value !== confirmPass.value && confirmPass.touched">Password and Confirm Password value does not match.</div>
+          
         </div>
       </div>
 
@@ -129,3 +125,11 @@
 <pre>Is form valid?: <br>{{f.valid | json}}</pre>
 <pre>Is form submitted?: <br>{{f.submitted | json}}</pre>
 <pre>submitted value: <br>{{f.value | json}}</pre>
+
+<pre>
+{{confirmPass.errors | json}}
+</pre>
+validateEqualTo
+<pre>
+  {{confirmPass.validateEqualTo | json}}
+  </pre>

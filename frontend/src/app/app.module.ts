@@ -13,11 +13,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AboutComponent } from './components/about/about.component';
 import { FlashMessageComponent } from './components/flash-message/flash-message.component';
+//import { TextEqualityValidatorModule } from "ngx-text-equality-validator";
 
 import { FlashMessageService } from './services/flash-message.service';
 import { UserService } from './services/user.service';
 
-import { EqualValidator } from './directives/equal-validator';
+import { EqualTextValidator } from './directives/equal.validator';
 
 
 
@@ -27,7 +28,7 @@ import { EqualValidator } from './directives/equal-validator';
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -37,7 +38,7 @@ import { EqualValidator } from './directives/equal-validator';
     LoginComponent,
     AboutComponent,
     FlashMessageComponent,
-    EqualValidator
+    EqualTextValidator
   ],
   providers: [
     FlashMessageService,
