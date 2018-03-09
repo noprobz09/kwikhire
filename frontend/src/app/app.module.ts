@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule }  from '@angular/forms';
 
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
@@ -17,6 +17,7 @@ import { FlashMessageComponent } from './components/flash-message/flash-message.
 
 import { FlashMessageService } from './services/flash-message.service';
 import { UserService } from './services/user.service';
+import { JobService } from './services/job.service';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { EqualValidator } from './directives/equal-validator';
 
@@ -41,7 +42,8 @@ import { EqualValidator } from './directives/equal-validator';
   ],
   providers: [
     FlashMessageService,
-    UserService
+    UserService,
+    JobService
   ],
   bootstrap: [AppComponent]
 })

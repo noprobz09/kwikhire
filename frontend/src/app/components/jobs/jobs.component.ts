@@ -13,11 +13,7 @@ export class JobsComponent implements OnInit {
   constructor(public jobService: JobService) { }
 
   ngOnInit() {
-    this.jobService.getJobs().subscribe(jobs => {
-      // this.jobService.jobBS.next(jobs);
-      // this.jobs = this.jobService.jobBS;
-      // console.log(this.jobs);
-    });
+    this.jobService.getJobs().subscribe(data => console.log(data));
   }
 
 }
