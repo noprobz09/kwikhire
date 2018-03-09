@@ -24,36 +24,23 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(){
+  register(form){
     
     //console.log(this.model);
 
-    this.userService.create(this.model)
-        .subscribe(
-          data => {
-            //console.log(data.exist);
-            console.log(data);
-            // if(res && res.data){
-            //   console.log('existing');
-            // }else{
-            //   this.flashMessageService.success('Registration successful');
-            // }
-            
-          },
-          error => {
-            this.flashMessageService.error(error);            
-          }
-        );
-    //console.log(valid);
+    // this.userService.create(this.model)
+    //     .subscribe(
+    //       data => {         
+    //         this.flashMessageService.success('Registration successful');
+    //       },
+    //       err => {
+    //         this.flashMessageService.error(err.error.text);            
+    //       }
+    //     );
+
+    console.log(form);
+    console.log(form.valid);
     
-    // if(valid){
-    //   //register data
-      
-
-    // }else{
-    //   //add error here to the message service
-
-    // }
   }
 
 }

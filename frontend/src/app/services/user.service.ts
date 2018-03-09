@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { AppConfig } from '../config/app.config';
 
-import 'rxjs/add/operator/map';
-
 @Injectable()
 export class UserService {
 

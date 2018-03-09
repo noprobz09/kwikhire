@@ -9,7 +9,8 @@ module.exports = (app) => {
     app.get('/test', (req, res) => {
         res.send({'Welcome': 'test'});
     });
-
+    
     require('./user')(app);
     require('./job')(app);
+
 };

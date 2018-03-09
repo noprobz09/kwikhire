@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 import { AppConfig } from '../config/app.config';
 
-import 'rsjx/add/operator/map';
+//import 'rsjx/add/operator/map';
 
 @Injectable()
 export class JobService {
