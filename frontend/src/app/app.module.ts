@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -16,6 +16,7 @@ import { FlashMessageComponent } from './components/flash-message/flash-message.
 
 import { FlashMessageService } from './services/flash-message.service';
 import { UserService } from './services/user.service';
+import { JobsComponent } from './components/jobs/jobs.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { UserService } from './services/user.service';
     HomeComponent,
     LoginComponent,
     AboutComponent,
-    FlashMessageComponent
+    FlashMessageComponent,
+    JobsComponent
   ],
   providers: [
     FlashMessageService,
