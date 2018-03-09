@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule }  from '@angular/forms';
+
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -20,7 +21,8 @@ import { UserService } from './services/user.service';
 
 import { EqualTextValidator } from './directives/equal.validator';
 
-
+import { JobService } from './services/job.service';
+import { JobsComponent } from './components/jobs/jobs.component';
 
 @NgModule({
   imports: [
@@ -38,11 +40,13 @@ import { EqualTextValidator } from './directives/equal.validator';
     LoginComponent,
     AboutComponent,
     FlashMessageComponent,
-    EqualTextValidator
+    EqualTextValidator,
+    JobsComponent,  
   ],
   providers: [
     FlashMessageService,
-    UserService
+    UserService,
+    JobService
   ],
   bootstrap: [AppComponent]
 })

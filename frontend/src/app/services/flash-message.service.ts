@@ -17,7 +17,6 @@ export class FlashMessageService {
   }
 
   success(message: string){
-    //console.log(message);
     this.subject.next({type: 'success', text: message});
   }
 

@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const Q = require('q');
+
+//const Q = require('q');
 
 require('../models/user');
 
 // Get User Model
 const User = mongoose.model('users');
-
 
 module.exports = (app) => {
     
@@ -63,8 +63,6 @@ module.exports = (app) => {
                 //deferred.resolve();
 
             }
-
-            
 
     });
 

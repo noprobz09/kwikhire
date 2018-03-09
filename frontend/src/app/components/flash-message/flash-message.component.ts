@@ -1,5 +1,6 @@
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FlashMessageService } from '../../services/flash-message.service'
+import { FlashMessageService } from '../../services/flash-message.service';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -7,6 +8,7 @@ import { ISubscription, Subscription } from 'rxjs/Subscription';
   templateUrl: './flash-message.component.html',
   styleUrls: ['./flash-message.component.css']
 })
+
 export class FlashMessageComponent implements OnDestroy {
 
   private subscription: Subscription;
@@ -14,8 +16,10 @@ export class FlashMessageComponent implements OnDestroy {
 
   constructor(
     private flashMessageService : FlashMessageService
-  ) { 
-    this.subscription = flashMessageService.getMessage().subscribe(message => {this.message = message});
+  ) {}
+
+  ngOnInit() { 
+   // this.subscription = flashMessageService.getMessage().subscribe(message => {this.message = message});
   }
 
   // ngOnInit() {

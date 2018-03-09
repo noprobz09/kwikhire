@@ -32,8 +32,6 @@
  // parse application/json
  app.use(bodyParser.json());
 
- 
-
  //routes
  require('./routes/index')(app);
 
