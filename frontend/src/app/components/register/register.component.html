@@ -2,7 +2,7 @@
 <div class="row">
   <h2>Create your KwikHire account</h2>
 
-  <form novalidate #f="ngForm" (ngSubmit)="register(f)">
+  <form #f="ngForm" novalidate (ngSubmit)="register(f)">
 
     <div class="row">
      
@@ -70,17 +70,12 @@
         <div class="input-field col s6">
           <input id="password" type="password"
            class="form-control"
-
             name="password"
             [(ngModel)]="model.password"
             #pass="ngModel"
+            validateEqualTo="confirmpassword"
             minlength="4"
-<<<<<<< HEAD
-=======
-
-            validateEqual="confirmPass" 
             reverse="true"
->>>>>>> 71d2b91ac7a481e69d0e0579047817224008a266
             required
           />
           <label for="password">Password</label>
@@ -96,25 +91,14 @@
             name="confirmpassword"
             [(ngModel)]="model.confirmpassword"
             #confirmPass="ngModel"
-<<<<<<< HEAD
-            validateEqualTo="pass"
-=======
-            validateEqual="pass"
-            reverse="false"3
->>>>>>> 71d2b91ac7a481e69d0e0579047817224008a266
+            validateEqualTo="password"
             required
           />
           <label for="confirm-password">Confirm Password</label>
 
           <div class="alert alert-danger" *ngIf="confirmPass.errors?.required && confirmPass.touched">Confirm Password is required</div>
-<<<<<<< HEAD
           <div class="alert alert-danger" *ngIf="pass.value !== confirmPass.value && confirmPass.touched">Password and Confirm Password value does not match.</div>
           
-=======
-          <!-- <div class="alert alert-danger" *ngIf="pass.value !== confirmPass.value && confirmPass.touched">Password and Confirm Password value does not match.</div> -->
-          <div class="alert alert-danger" [hidden]="confirmPass.valid || (confirmPass.pristine && !f.submitted)">Password and Confirm Password value does not match.</div>
-
->>>>>>> 71d2b91ac7a481e69d0e0579047817224008a266
         </div>
       </div>
 

@@ -27,13 +27,9 @@ export class RegisterComponent implements OnInit {
   register(form){
     
   
-    if( form.valid ){ // if form is valid
-     
-      if(this.model.password !== this.model.confirmpassword ){
+    if( form.valid ){ // if form is valid     
 
-        this.flashMessageService.error('Password and Confirm Password not match!');
-
-      }else{
+      console.log('valid');
 
         //call userservice create
          this.userService.create(this.model)
@@ -46,10 +42,9 @@ export class RegisterComponent implements OnInit {
             }
           );
 
-      }
-
     }else{// else throw error
-      this.flashMessageService.success('Some Fields are required to have input');
+      console.log('invalid');
+      this.flashMessageService.error('Some Fields are required to have input');
     }
     
     

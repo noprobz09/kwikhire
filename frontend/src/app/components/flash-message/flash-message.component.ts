@@ -19,14 +19,8 @@ export class FlashMessageComponent implements OnDestroy {
   ) {}
 
   ngOnInit() { 
-   // this.subscription = flashMessageService.getMessage().subscribe(message => {this.message = message});
+    this.subscription = this.flashMessageService.getMessage().subscribe(message => {this.message = message});
   }
-
-  // ngOnInit() {
-    
-  //   this.flashMessageService.getMessage().subscribe(message => { this.message });
-  //   console.log(this.message);
-  // }
 
   ngOnDestroy(): void{
     //unsubscribe on destroy to prevent memory leaks
