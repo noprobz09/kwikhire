@@ -1,6 +1,6 @@
 //const user = require('./user');
 
-module.exports = (app) => {
+module.exports = (app, passport) => {
 
     app.get('/', (req, res) => {
         res.send({'Welcome': 'Hello World!'});
@@ -10,7 +10,7 @@ module.exports = (app) => {
         res.send({'Welcome': 'test'});
     });
     
-    require('./user')(app);
+    require('./user')(app, passport);
     require('./job')(app);
 
 };

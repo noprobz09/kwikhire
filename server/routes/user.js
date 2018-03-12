@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-//const Q = require('q');
-
 require('../models/user');
 
 // Get User Model
 const User = mongoose.model('users');
 
-module.exports = (app) => {
+module.exports = (app, passport) => {
     
+    //test user page
     app.get('/user', (req, res) => {
         res.send({'Welcome': 'User Page'});
     });
 
+
+    //create
     app.post('/api/user/create', async (req, res) => {
 
             //res.json(req.body);
@@ -21,25 +22,7 @@ module.exports = (app) => {
             const existingUser = await User.findOne({email: req.body.email});
 
             if( existingUser ){
-                 //res.json({exist: true}); 
-                // try{
-                    
-                // }catch(err){
-                //     res.json(err);
-                //     //console.log(err);
-                //     deferred.reject('Email "' + req.body.email + '" is already exist');    
-                // }
                 
-                // return deferred.promise; 
-
-                //deferred.reject('Email "' + req.body.email + '" is already exist');   
-                //res.json(deferred.promise) ;  
-                //res.json({exist:true});
-                //const deferred = Q.defer();
-
-                //deferred.reject(new Error());
-                
-                //return deferred.promise;
                 res.status(200).send('Email "' + req.body.email + '" is already exist');
                 
             }else{
@@ -60,10 +43,16 @@ module.exports = (app) => {
                     res.json(err);
                 }
 
-                //deferred.resolve();
-
             }
 
+    });
+
+
+    //login
+    app.post('/api/user/login', passport.authenticate('local-login'), async(req, res) => {
+        res.json(req.user);
+        //console.log(req.body);
+        //res.json(req.user);
     });
 
 };

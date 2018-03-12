@@ -1,12 +1,17 @@
 
 <div class="row">
     <h2>Login your KwikHire account</h2>
-    <form class="col s12">
+    <form #f="ngForm" novalidate (ngSubmit)="login(f)">
       <div class="row">
       
         <div class="clearfix">
           <div class="input-field">
-            <input id="email" type="email">
+            <input id="email" type="email"
+              name="email"
+              [(ngModel)]="model.email"
+              #email="ngModel"
+              required
+            />
             <label for="email">Email Address</label>
           </div>
           
@@ -14,7 +19,12 @@
   
         <div class="clearfix">
           <div class="input-field">
-            <input id="password" type="password">
+            <input id="password" type="password"
+              name="password"
+              [(ngModel)]="model.password"
+              #email="ngModel"
+              required
+            />
             <label for="password">Password</label>
           </div>
          

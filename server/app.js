@@ -2,6 +2,8 @@
  const mongoose = require('mongoose');
  const bodyParser = require('body-parser');
  const cors = require('cors');
+ const passport = require('passport');
+
  
  const config = require('./config');
 
@@ -31,9 +33,14 @@
 
  // parse application/json
  app.use(bodyParser.json());
+ 
+ app.use(passport.initialize());
+ app.use(passport.session());
+
+ require('./config/passport')(passport); // pass passport for configuration
 
  //routes
- require('./routes/index')(app);
+ require('./routes/index')(app, passport); // load our routes and pass in our app and fully configured passport
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

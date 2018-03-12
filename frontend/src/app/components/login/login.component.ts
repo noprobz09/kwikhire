@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { FlashMessageService } from '../../services/flash-message.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  model: any = {};
+
+  constructor(
+    private userService: UserService,
+    private flashMessageService: FlashMessageService
+  ) { }
 
   ngOnInit() {
+  }
+
+  login(form){
+    
+    if( form.valid ){ // if form is valid     
+
+        //call userservice login
+         this.userService.login(this.model)
+        .subscribe(
+            data => {         
+              //this.flashMessageService.success('Registration successful');
+              console.log(data);
+            },
+            err => {
+              this.flashMessageService.error(err.error.text);            
+            }
+          );
+
+    }else{// else throw error
+      this.flashMessageService.error('Some Fields are required to have input');
+    }
+
   }
 
 }
