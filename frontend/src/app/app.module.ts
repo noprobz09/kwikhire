@@ -23,6 +23,11 @@ import { EqualTextValidator } from './directives/equal.validator';
 
 import { JobService } from './services/job.service';
 import { JobsComponent } from './components/jobs/jobs.component';
+import { InterviewListsComponent } from './components/company/interview-lists/interview-lists.component';
+import { InterviewCreateComponent } from './components/company/interview-create/interview-create.component';
+import { JobListsComponent } from './components/company/job-lists/job-lists.component';
+import { JobCreateComponent } from './components/company/job-create/job-create.component';
+
 
 @NgModule({
   imports: [
@@ -41,7 +46,11 @@ import { JobsComponent } from './components/jobs/jobs.component';
     AboutComponent,
     FlashMessageComponent,
     EqualTextValidator,
-    JobsComponent,  
+    JobsComponent,
+    InterviewListsComponent,
+    InterviewCreateComponent,
+    JobListsComponent,
+    JobCreateComponent,
   ],
   providers: [
     FlashMessageService,
