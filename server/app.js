@@ -1,46 +1,73 @@
- const express = require('express');
- const mongoose = require('mongoose');
- const bodyParser = require('body-parser');
- const cors = require('cors');
- const passport = require('passport');
+    const express = require('express');
+    const mongoose = require('mongoose');
+    const bodyParser = require('body-parser');
+    const cors = require('cors');
+    //const passport = require('passport');
 
- 
- const config = require('./config');
+    const config = require('./config');
 
- mongoose.connect(config.database);
- 
- const db = mongoose.connection;
- db.on('error', console.error.bind(console, 'connection error:'));
- db.once('open', function(){
-    console.log('Connected to MongoDB');
- });
- 
- const app = express();
+    mongoose.connect(config.database);
 
- const corsOptions = {
-    origin: 'http://localhost:4200',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
- };
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', function(){
+        console.log('Connected to MongoDB');
+    });
 
- app.use(cors(corsOptions));
- 
- // Prettyfy JSON
- app.set('json spaces', 40);
+    const app = express();
 
- // Body parser middleware
- // parse application/x-www-form-urlencoded
- app.use(bodyParser.urlencoded({ extended: false }));
+    const corsOptions = {
+        origin: 'http://localhost:4200',
+        optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    };
 
- // parse application/json
- app.use(bodyParser.json());
- 
- app.use(passport.initialize());
- app.use(passport.session());
+    app.use(cors(corsOptions));
 
- require('./config/passport')(passport); // pass passport for configuration
+    // Prettyfy JSON
+    app.set('json spaces', 40);
 
- //routes
- require('./routes/index')(app, passport); // load our routes and pass in our app and fully configured passport
+    // Body parser middleware
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+    // parse application/json
+    app.use(bodyParser.json());
+
+    //app.use(passport.initialize());
+    //app.use(passport.session());
+
+    function authChecker(req, res, next)
+    {
+        console.log(req.headers);
+
+        if(req.headers.authorization)
+        {
+            console.log(req.headers.authorization.split(" ")[1]);
+            const { Schema } = mongoose;
+
+            // User Schema
+            const UserSchema = new Schema({
+                    
+                company: String,
+                fullname: String,
+                email: String,
+                phone: String,
+                password: String,
+    
+            });
+            const User = mongoose.model('users', UserSchema);
+    
+            User.findOne({ '_id': req.headers.authorization.split(" ")[1] }, function (err, person) {
+                if (err) return handleError(err);
+                // Prints "Space Ghost is a talk show host".
+                console.log(person);
+                });
+        }
+       
+    }
+
+    app.use(authChecker);
+    require('./routes/index')(app); // load our routes and pass in our app and fully configured passport
+
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT);

@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-require('../models/user');
+//require('../models/user');
 
 // Get User Model
-const User = mongoose.model('users');
+//const User = mongoose.model('users');
 
-module.exports = (app, passport) => {
+module.exports = (app) => {
     
     //test user page
     app.get('/user', (req, res) => {
@@ -47,10 +47,10 @@ module.exports = (app, passport) => {
 
     });
 
-
     //login
-    app.post('/api/user/login', passport.authenticate('local-login'), async(req, res) => {
-        res.json(req.user);
+    app.post('/api/user/login', async(req, res) => {
+        console.log(req.headers);
+        //res.json(req.user);
         //console.log(req.body);
         //res.json(req.user);
     });

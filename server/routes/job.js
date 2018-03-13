@@ -6,6 +6,7 @@ var Job = require('../models/job');
 module.exports = (app) => {
     
     app.get('/api/jobs', (req, res) => {
+
         Job.find({}, (err, jobs) => {
             if(err) res.json(err);
 
