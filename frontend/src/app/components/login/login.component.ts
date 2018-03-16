@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
             data => {         
               //this.flashMessageService.success('Registration successful');
               console.log(data);
+              localStorage.setItem('currentUser', JSON.stringify(data));
+
+              console.log(localStorage);
             },
             err => {
               this.flashMessageService.error(err.error.text);            

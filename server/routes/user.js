@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-//require('../models/user');
-
-// Get User Model
-//const User = mongoose.model('users');
+const User = require('../models/User');
 
 module.exports = (app) => {
     
@@ -15,44 +11,51 @@ module.exports = (app) => {
 
 
     //create
-    app.post('/api/user/create', async (req, res) => {
+    // app.post('/api/user/create', async (req, res) => {
 
-            //res.json(req.body);
+    //         //res.json(req.body);
 
-            const existingUser = await User.findOne({email: req.body.email});
+    //         const existingUser = await User.findOne({email: req.body.email});
 
-            if( existingUser ){
+    //         if( existingUser ){
                 
-                res.status(200).send('Email "' + req.body.email + '" is already exist');
+    //             res.status(200).send('Email "' + req.body.email + '" is already exist');
                 
-            }else{
-                const user = new User({
-                    company: req.body.company,
-                    fullname: req.body.fullname,
-                    email: req.body.email,
-                    phone: req.body.phone,
-                    password: bcrypt.hashSync(req.body.password, 10),
-                });
+    //         }else{
+    //             const user = new User({
+    //                 company: req.body.company,
+    //                 fullname: req.body.fullname,
+    //                 email: req.body.email,
+    //                 phone: req.body.phone,
+    //                 password: bcrypt.hashSync(req.body.password, 10),
+    //             });
 
-                try{
-                    let newUser = await user.save();
+    //             try{
+    //                 let newUser = await user.save();
                 
-                    res.json(newUser);
+    //                 res.json(newUser);
             
-                } catch (err){
-                    res.json(err);
-                }
+    //             } catch (err){
+    //                 res.json(err);
+    //             }
 
-            }
+    //         }
 
-    });
+    // });
 
     //login
     app.post('/api/user/login', async(req, res) => {
-        console.log(req.headers);
-        //res.json(req.user);
-        //console.log(req.body);
-        //res.json(req.user);
+        
+        console.log('llll');
+        console.log(req.user);  
+        User.findOne({email: req.body.email}, (err, user) => 
+        {
+            if(err) res.json(err);
+            
+            if(!user )
+            console.log(user);
+            res.json(user);
+        });
     });
 
 };
