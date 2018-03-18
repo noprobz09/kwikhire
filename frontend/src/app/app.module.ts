@@ -27,6 +27,8 @@ import { InterviewListsComponent } from './components/company/interview-lists/in
 import { InterviewCreateComponent } from './components/company/interview-create/interview-create.component';
 import { JobListsComponent } from './components/company/job-lists/job-lists.component';
 import { JobCreateComponent } from './components/company/job-create/job-create.component';
+import { AuthGuard } from './guards/auth.guard';
+import { CompanyIndexComponent } from './components/company/company-index/company-index.component';
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import { JobCreateComponent } from './components/company/job-create/job-create.c
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,    
   ],
   declarations: [
     AppComponent,
@@ -51,11 +53,13 @@ import { JobCreateComponent } from './components/company/job-create/job-create.c
     InterviewCreateComponent,
     JobListsComponent,
     JobCreateComponent,
+    CompanyIndexComponent,
   ],
   providers: [
     FlashMessageService,
     UserService,
-    JobService
+    JobService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

@@ -14,16 +14,27 @@ import { InterviewCreateComponent } from './components/company/interview-create/
 import { JobListsComponent } from './components/company/job-lists/job-lists.component';
 import { JobCreateComponent } from './components/company/job-create/job-create.component';
 
+import { AuthGuard } from './guards/auth.guard';
+import { CompanyIndexComponent } from './components/company/company-index/company-index.component';
 const routes: Routes = [  
   { path: '', component: HomeComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },  
   { path: 'jobs', component: JobsComponent },
-  { path: 'company/interview/lists', component: InterviewListsComponent},
-  { path: 'company/interview/create', component: InterviewCreateComponent},
-  { path: 'company/jobs/lists', component: JobListsComponent},
-  { path: 'company/jobs/create', component: JobCreateComponent},
+  {
+    path: 'company',
+    component: CompanyIndexComponent,
+    canActivate: [AuthGuard], 
+    canActivateChild: [AuthGuard],
+    children: [
+      {path: '', redirectTo: 'interview/lists', pathMatch: 'full'},
+      {path: 'interview/lists', component: InterviewListsComponent},
+      {path: 'interview/create', component: InterviewCreateComponent},
+      { path: 'jobs/lists', component: JobListsComponent},
+      { path: 'jobs/create', component: JobCreateComponent},
+    ]    
+  },
   
 ];
 
