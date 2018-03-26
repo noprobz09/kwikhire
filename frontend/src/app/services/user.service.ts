@@ -17,10 +17,6 @@ export class UserService {
   }
 
   login(user: User){
-<<<<<<< HEAD
-
-    return this.http.post( AppConfig.apiUrl + '/user/login', user);
-=======
     return this.http.post( AppConfig.apiUrl + '/user/login', user)
       .map(user => { 
         // login successful if there's a jwt token in the response
@@ -44,6 +40,5 @@ export class UserService {
       
     //temporary return false only
     return false;
->>>>>>> 2ce024374a919d33eca11d589f5113181346a84e
   }
 }
