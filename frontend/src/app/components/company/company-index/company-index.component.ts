@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-index',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./company-index.component.css']
 })
 export class CompanyIndexComponent implements OnInit {
-
+  
   constructor() { }
-
+  
   ngOnInit() {
+    
   }
 
 }

@@ -29,6 +29,8 @@ import { JobListsComponent } from './components/company/job-lists/job-lists.comp
 import { JobCreateComponent } from './components/company/job-create/job-create.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CompanyIndexComponent } from './components/company/company-index/company-index.component';
+import { SideNavbarComponent } from './components/company/side-navbar/side-navbar.component';
+
 
 
 @NgModule({
@@ -54,6 +56,7 @@ import { CompanyIndexComponent } from './components/company/company-index/compan
     JobListsComponent,
     JobCreateComponent,
     CompanyIndexComponent,
+    SideNavbarComponent,
   ],
   providers: [
     FlashMessageService,

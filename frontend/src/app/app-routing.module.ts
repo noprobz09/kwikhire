@@ -25,8 +25,8 @@ const routes: Routes = [
   {
     path: 'company',
     component: CompanyIndexComponent,
-    canActivate: [AuthGuard], 
-    canActivateChild: [AuthGuard],
+    //canActivate: [AuthGuard], 
+    //canActivateChild: [AuthGuard],
     children: [
       {path: '', redirectTo: 'interview/lists', pathMatch: 'full'},
       {path: 'interview/lists', component: InterviewListsComponent},
