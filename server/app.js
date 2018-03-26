@@ -2,8 +2,6 @@
     const mongoose = require('mongoose');
     const bodyParser = require('body-parser');
     const cors = require('cors');
-    //const passport = require('passport');
-
     const config = require('./config');
 
     mongoose.connect(config.database);
@@ -33,40 +31,27 @@
     // parse application/json
     app.use(bodyParser.json());
 
-    //app.use(passport.initialize());
-    //app.use(passport.session());
-
     function authChecker(req, res, next)
     {
         console.log(req.headers);
-
+        
         if(req.headers.authorization)
         {
             console.log(req.headers.authorization.split(" ")[1]);
-            const { Schema } = mongoose;
-
-            // User Schema
-            const UserSchema = new Schema({
-                    
-                company: String,
-                fullname: String,
-                email: String,
-                phone: String,
-                password: String,
-    
-            });
-            const User = mongoose.model('users', UserSchema);
+            const User = require('./models/User');
     
             User.findOne({ '_id': req.headers.authorization.split(" ")[1] }, function (err, person) {
                 if (err) return handleError(err);
                 // Prints "Space Ghost is a talk show host".
                 console.log(person);
-                });
+            });
         }
-       
+        
+        next();
     }
 
-    app.use(authChecker);
+    const AuthCheck = require('./middleware/auth');
+    app.use(AuthCheck);
     require('./routes/index')(app); // load our routes and pass in our app and fully configured passport
 
     const PORT = process.env.PORT || 5000;

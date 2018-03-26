@@ -1,15 +1,15 @@
-// const mongoose = require('mongoose');
-// const { Schema } = mongoose;
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-// // User Schema
-// const UserSchema = new Schema({
+// User Schema
+const UserSchema = new Schema({
    
-//     company: String,
-//     fullname: String,
-//     email: String,
-//     phone: String,
-//     password: String,
+    company: String,
+    fullname: String,
+    email: String,
+    phone: String,
+    password: String,
 
-// });
+});
 
-//mongoose.model("users", UserSchema);
+var User = module.exports = mongoose.model("users", UserSchema);
