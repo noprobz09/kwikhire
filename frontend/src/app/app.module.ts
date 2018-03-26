@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule }  from '@angular/forms';
 
 import {HttpModule} from '@angular/http';
@@ -31,6 +31,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { CompanyIndexComponent } from './components/company/company-index/company-index.component';
 import { SideNavbarComponent } from './components/company/side-navbar/side-navbar.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 
 @NgModule({
@@ -39,8 +41,10 @@ import { SideNavbarComponent } from './components/company/side-navbar/side-navba
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule,    
+    HttpClientModule, 
+    MDBBootstrapModule.forRoot()   
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   declarations: [
     AppComponent,
     RegisterComponent,

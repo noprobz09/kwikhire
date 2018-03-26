@@ -1,0 +1,25 @@
+.side-nav{
+    transform: translateX(0%);
+    top: 65px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.side-nav .user-details{
+    background: url('../../../../assets/images/bg-user-details.png') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-bottom: 15px;
+    padding: 15px 0 0 15px;
+}
+
+.side-nav .user-details p{
+    color: #fff;
+}
+
+.side-nav li ul{
+    /* padding-left: 20px; */
+    display: none;
+}

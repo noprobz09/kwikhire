@@ -1,11 +1,33 @@
-<nav>
-  <div class="nav-wrapper">
-    <a routerLink="/" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="/about">About</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/jobs">Find Jobs</a></li>
-      <li><a routerLink="/register">Register</a></li>
-    </ul>
-  </div>
-</nav>
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+           
+    <!-- Navbar brand -->
+    <logo><a class="navbar-brand" routerLink="/">Logo</a></logo>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/about" mdbRippleRadius>About<span class="sr-only">(current)</span></a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/jobs" mdbRippleRadius>Find Jobs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/login" mdbRippleRadius>Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/register" mdbRippleRadius>Register</a>
+            </li>
+
+        </ul>
+        <!-- Links -->
+
+       
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

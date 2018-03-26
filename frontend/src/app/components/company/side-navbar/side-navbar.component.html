@@ -1,17 +1,65 @@
-<!-- <ul  class="side-nav" id="slide-out">
-    <li><div class="user-view">
-      
-      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#!name"><span class="white-text name">John Doe</span></a>
-      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
-  <a href="javascript:void(0);" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-         -->
+<!-- <ul  class="side-nav" id="accordion">
+    <li class="user-details cyan darken-2">
+        <div class="row">
+          <div class="col col s4 m4 l4">
+            <img src="https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">
+          </div>
+          <div class="col col s8 m8 l8">
+            <p class="user-role">Administrator</p>
+          </div>
+        </div>
+      </li>
+  <li>
+    <a href="javascript:void(0);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="material-icons">ondemand_video</i>Interviews</a>
+    <ul id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <li><a href="#"><i class="material-icons">videocam</i>View Interviews</a></li>
+      <li><a href="#"><i class="material-icons">video_call</i>Create Interviews</a></li>
+      <li><a href="#"><i class="material-icons">screen_share</i>Share Links</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="javascript:void(0);"><i class="material-icons">next_week</i>Jobs</a>
+    <ul>
+        <li><a href="#"><i class="material-icons">view_list</i>View Job</a></li>
+        <li><a href="#"><i class="material-icons">note_add</i>Create Job</a></li>
+      </ul>
+  </li>
+  <li><a href="#!"><i class="material-icons">settings</i>Settings</a></li>  
+</ul>
+   -->
 
-<p>Side nav bar</p>
+<!-- Sidebar Holder -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>Bootstrap Sidebar</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p>Dummy Heading</p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li><a href="#">Home 1</a></li>
+                <li><a href="#">Home 2</a></li>
+                <li><a href="#">Home 3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">About</a>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li><a href="#">Page 1</a></li>
+                <li><a href="#">Page 2</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Portfolio</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>
+    </ul>
+
+    
+</nav>  

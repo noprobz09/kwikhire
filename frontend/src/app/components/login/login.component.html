@@ -1,43 +1,51 @@
 
-<div class="row">
-    <h2>Login your KwikHire account</h2>
-    <form #f="ngForm" novalidate (ngSubmit)="login(f)">
-      <div class="row">
+<div class="clearfix">    
       
-        <div class="clearfix">
-          <div class="input-field">
-            <input id="email" type="email"
+    <!-- Login form -->
+    <form #f="ngForm" novalidate (ngSubmit)="login(f)">
+        <h2 class="text-center">Login your KwikHire account</h2>
+
+        <div class="md-form">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <input 
+              type="email"
+              id="email" 
               name="email"
               [(ngModel)]="model.email"
               #email="ngModel"
+              class="form-control" 
+              mdbActive
               required
             />
-            <label for="email">Email Address</label>
-          </div>
-          
+            <label for="email">Your email</label>
         </div>
-  
-        <div class="clearfix">
-          <div class="input-field">
-            <input id="password" type="password"
+
+        <div class="md-form">
+            <i class="fa fa-lock prefix grey-text"></i>
+            <input 
+              id="password" 
+              type="password"
               name="password"
               [(ngModel)]="model.password"
               #email="ngModel"
+              class="form-control" 
+              mdbActive
               required
             />
-            <label for="password">Password</label>
-          </div>
-         
+            <label for="password">Your password</label>
         </div>
-  
+
         <!-- submit btn -->
-        <div class="clearfix">
-          <button class="btn waves-effect waves-light" type="submit" name="action">Login
+        <div class="clearfix text-center">
+          <button class="btn btn-primary waves-effect waves-light" type="submit" name="action">Login
             <i class="material-icons right">send</i>
           </button>
         </div>
-        
-  
-      </div>
+
     </form>
+    <!-- Login form -->
+
+
   </div>
+
+
