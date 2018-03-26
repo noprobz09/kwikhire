@@ -30,11 +30,11 @@ export class FlashMessageService {
     return this.subject.asObservable();
   }
 
-  success(message: string){
+  success(message: string, keepAfterNavigationChange = false){
     this.subject.next({type: 'success', text: message});
   }
 
-  error(message: string){
+  error(message: string, keepAfterNavigationChange = false){
     this.subject.next({type: 'error', text: message});
   }
 
