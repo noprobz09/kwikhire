@@ -32,6 +32,7 @@ import { CompanyIndexComponent } from './components/company/company-index/compan
 import { SideNavbarComponent } from './components/company/side-navbar/side-navbar.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { InterviewShareLinksComponent } from './components/company/interview-share-links/interview-share-links.component';
 
 
 
@@ -61,6 +62,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     JobCreateComponent,
     CompanyIndexComponent,
     SideNavbarComponent,
+    InterviewShareLinksComponent,
   ],
   providers: [
     FlashMessageService,

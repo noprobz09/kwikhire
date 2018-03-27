@@ -7,10 +7,11 @@
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
-    color: #fff;
+    background: #F3F3F3;
+    color: #707070;
     transition: all 0.3s;
     height: 100%;
+    position: relative;
 }
 
 #sidebar.active {
@@ -19,16 +20,16 @@
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #EBEBEB;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #EBEBEB;
 }
 
 #sidebar ul p {
-    color: #fff;
+    color: #707070;
     padding: 10px;
 }
 
@@ -36,17 +37,43 @@
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: #707070;
+    font-weight: 500;
+    display: inline-block;
+    width: 100%;
+    position: relative;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #213d55;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: #707070;
+    background: #EBEBEB;
 }
 
+#sidebar ul li ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+#sidebar ul li ul li a{
+    display: inline-block;
+    width: 100%;
+    padding-left: 30px;
+}
+
+#sidebar ul li ul li a span{
+    padding-left: 5px;
+    display: inline-block;
+}
+
+#sidebar ul li .fa-chevron-right{
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -66,9 +93,7 @@ a[aria-expanded="true"]::before {
 
 
 ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
+    font-size: 0.9em !important;    
 }
 
 
@@ -77,6 +102,8 @@ ul ul a {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
+    background: #e5e5e5;
+    width: 100%;
 }
 
 
@@ -88,4 +115,10 @@ ul ul a {
 }
 .mtop50{
     margin-top: 50px;
+}
+.bd{
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: .2rem;
 }

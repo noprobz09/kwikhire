@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InterviewCreateComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  step1(f){
+
+  }
+
+  goNextForm(){}
+
+  goPrevForm(){
+
   }
 
 }

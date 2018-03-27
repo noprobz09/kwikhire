@@ -1,3 +1,40 @@
-<p>
-  interview-create works!
-</p>
+
+<div class="clearfix white bd">   
+  
+  <div class="clearfix">
+    <h2>Create Interview</h2>
+    <hr />
+
+    <!-- step 1 -->
+    <form #fStep1="ngForm" novalidate (ngSubmit)="step1(fStep1)">
+        <div class="clearfix">
+          <div class="form-group">
+            <label for="jobs">Jobs</label>
+            <select class="form-control" id="jobs" required>
+              <option>Full Stack Developer</option>
+              
+            </select>
+          </div>
+
+          <div class="form-group">
+              <label for="interview-type">Interview Type:</label>
+              <select class="form-control" id="interview-type" required>
+                <option>One Way Interview</option>
+                <option>Open Interview</option>            
+              </select>
+            </div>
+
+            <!-- submit btn -->
+            <div class="clearfix">
+              <button class="btn btn-primary waves-effect waves-light" type="submit" name="action">Continue <i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+
+          </div>
+      </form>
+     <!--/step 1-->
+  </div>
+
+  
+</div>
+
+

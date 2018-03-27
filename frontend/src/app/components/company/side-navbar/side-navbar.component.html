@@ -1,65 +1,29 @@
-<!-- <ul  class="side-nav" id="accordion">
-    <li class="user-details cyan darken-2">
-        <div class="row">
-          <div class="col col s4 m4 l4">
-            <img src="https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">
-          </div>
-          <div class="col col s8 m8 l8">
-            <p class="user-role">Administrator</p>
-          </div>
-        </div>
-      </li>
-  <li>
-    <a href="javascript:void(0);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="material-icons">ondemand_video</i>Interviews</a>
-    <ul id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <li><a href="#"><i class="material-icons">videocam</i>View Interviews</a></li>
-      <li><a href="#"><i class="material-icons">video_call</i>Create Interviews</a></li>
-      <li><a href="#"><i class="material-icons">screen_share</i>Share Links</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="javascript:void(0);"><i class="material-icons">next_week</i>Jobs</a>
-    <ul>
-        <li><a href="#"><i class="material-icons">view_list</i>View Job</a></li>
-        <li><a href="#"><i class="material-icons">note_add</i>Create Job</a></li>
-      </ul>
-  </li>
-  <li><a href="#!"><i class="material-icons">settings</i>Settings</a></li>  
-</ul>
-   -->
 
 <!-- Sidebar Holder -->
 <nav id="sidebar">
-    <div class="sidebar-header">
-        <h3>Bootstrap Sidebar</h3>
-    </div>
-
-    <ul class="list-unstyled components">
-        <p>Dummy Heading</p>
-        <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li><a href="#">Home 1</a></li>
-                <li><a href="#">Home 2</a></li>
-                <li><a href="#">Home 3</a></li>
+    <ul class="list-unstyled components" id="accordion">
+        <li>
+            <a href="javascript:void(0);" (click)="interviewsMenu.toggle()"><i class="fa fa-video"></i> <span>Interviews</span> <i class="fa fa-chevron-right"></i></a>
+            <ul [mdbCollapse]="isCollapsed" #interviewsMenu="bs-collapse">
+                <li><a routerLink="interview/create"><i class="fa fa-plus"></i><span>Create Interview</span></a></li>
+                <li><a routerLink="interview/lists"><i class="fa fa-eye"></i><span>View Interviews</span></a></li>
+                <li><a routerLink="interview/share-links"><i class="fa fa-share"></i><span>Share Links</span></a></li>
             </ul>
         </li>
         <li>
-            <a href="#">About</a>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+            
+            <a href="javascript:void(0);" (click)="jobsMenu.toggle()"><i class="fa fa-suitcase"></i> <span>Jobs</span> <i class="fa fa-chevron-right"></i></a>
+            <ul [mdbCollapse]="isCollapsed" #jobsMenu="bs-collapse">
+                <li><a routerLink="jobs/create"><i class="fa fa-plus"></i><span>Create Jobs</span></a></li>
+                <li><a routerLink="jobs/lists"><i class="fa fa-eye"></i><span>View Jobs</span></a></li>
             </ul>
         </li>
-        <li>
-            <a href="#">Portfolio</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
+        <!-- <li>
+            <a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a>
+        </li> -->
+        
     </ul>
 
     
 </nav>  
+ 

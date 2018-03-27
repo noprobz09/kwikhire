@@ -16,6 +16,7 @@ import { JobCreateComponent } from './components/company/job-create/job-create.c
 
 import { AuthGuard } from './guards/auth.guard';
 import { CompanyIndexComponent } from './components/company/company-index/company-index.component';
+import { InterviewShareLinksComponent } from './components/company/interview-share-links/interview-share-links.component';
 const routes: Routes = [  
   { path: '', component: HomeComponent},
   { path: 'register', component: RegisterComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'interview/lists', pathMatch: 'full'},
       {path: 'interview/lists', component: InterviewListsComponent},
       {path: 'interview/create', component: InterviewCreateComponent},
+      {path: 'interview/share-links', component: InterviewShareLinksComponent },      
       { path: 'jobs/lists', component: JobListsComponent},
       { path: 'jobs/create', component: JobCreateComponent},
     ]    
