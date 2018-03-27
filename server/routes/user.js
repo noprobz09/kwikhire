@@ -4,57 +4,61 @@ const User = require('../models/User');
 
 module.exports = (app) => {
     
-    //test user page
-    app.get('/user', (req, res) => {
-        res.send({'Welcome': 'User Page'});
+    app.post('/api/users/create', async (req, res) => {
+
+        let newUser = new User({
+            name: req.body.name,
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
+        });
+
+      //  console.log(newUser);
+        User.checkAvailability(newUser, (err, user) => {
+
+        });
+        // User.addUser(newUser, (err, user) => {
+        //     if(err) {
+        //         res.json({success: false, msg: 'Failed to register user'})
+        //     } else {
+        //         res.json({success: true, msg: 'User Register'});
+        //     }
+        // });
     });
 
-
-    //create
-    // app.post('/api/user/create', async (req, res) => {
-
-    //         //res.json(req.body);
-
-    //         const existingUser = await User.findOne({email: req.body.email});
-
-    //         if( existingUser ){
-                
-    //             res.status(200).send('Email "' + req.body.email + '" is already exist');
-                
-    //         }else{
-    //             const user = new User({
-    //                 company: req.body.company,
-    //                 fullname: req.body.fullname,
-    //                 email: req.body.email,
-    //                 phone: req.body.phone,
-    //                 password: bcrypt.hashSync(req.body.password, 10),
-    //             });
-
-    //             try{
-    //                 let newUser = await user.save();
-                
-    //                 res.json(newUser);
-            
-    //             } catch (err){
-    //                 res.json(err);
-    //             }
-
-    //         }
-
-    // });
-
-    //login
-    app.post('/api/user/login', async(req, res) => {
+    app.post('/api/users/authenticate', async(req, res) => {
         
-        console.log('llll');
-        console.log(req.user);  
-        User.findOne({email: req.body.email}, (err, user) => 
-        {
-            if(err) res.json(err);
-            
-            if(!user )
-            console.log(user);
-            res.json(user);
+        const username = req.body.username;
+        const password = req.body.password;
+
+        User.getUserByUsername(username, (err, user) => {
+            if(err) throw err;
+
+            if(!user) {
+                return res.json({success: false, msg: 'User not found'});
+            }
+
+            User.comparePassword(password, user.password, (err, isMatch) => {
+                if(err) throw err;
+
+                if(isMatch) {
+                    const token = user.id;
+
+                    res.json({
+                        success: true,
+                        token: token,
+                        user: {
+                            id: user._id,
+                            name: user.name,
+                            username: user.username,
+                            email: user.email
+                        }
+                    })
+                } else {
+                    res.json({success: false, msg: 'Wrong Password'});
+                }
+            });
+
         });
     });
 
