@@ -15,7 +15,13 @@ module.exports = (app) => {
 
       //  console.log(newUser);
         User.checkAvailability(newUser, (err, user) => {
+           
+            if(err) throw err;
 
+            if(user) {
+                console.log('email or password is available')
+            }
+            console.log('xxxxxxxx');
         });
         // User.addUser(newUser, (err, user) => {
         //     if(err) {

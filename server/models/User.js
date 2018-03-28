@@ -47,6 +47,14 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
     });
 }
 
-module.exports.checkAvailability = (newUser) => {
-    console.log(newUser);
+module.exports.checkAvailability = (newUser, callback) => {
+    const query = {
+        "$or": [{
+            "username": newUser.username
+        }, {
+            "email": newUser.email
+        }]
+    }
+
+    User.find(query, callback);
 }
