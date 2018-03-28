@@ -1,5 +1,6 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark" *ngIf="!currentUrl.includes('company/'); else navCompany">
            
     <!-- Navbar brand -->
     <logo><a class="navbar-brand" routerLink="/">Logo</a></logo>
@@ -30,4 +31,11 @@
     <!-- Collapsible content -->
 
 </mdb-navbar>
+
+<ng-template #navCompany>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/">Logo</a>
+    </nav>
+</ng-template>
+
 <!--/.Navbar-->
