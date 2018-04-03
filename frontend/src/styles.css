@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 .navbar{
     background: #213d55 !important;
 }
@@ -108,7 +109,13 @@ ul ul a {
     width: 100%;
 }
 
-
+/* interview */
+#interview-build-question textarea{
+    resize: vertical;
+}
+.question-created-lists{
+    min-height: 200px;
+}
 
 /* extras */
 .wrapper {
@@ -118,9 +125,19 @@ ul ul a {
 .mtop50{
     margin-top: 50px;
 }
+.mleft0{margin-left: 0;}
+.mright0{margin-right: 0;}
 .bd{
     padding: 1.5rem;
     margin-right: 0;
     margin-left: 0;
     border-width: .2rem;
+}
+.full-width{
+    width: 100% !important;
+}
+
+/* overwrite */
+.btn{
+    box-shadow: none;
 }

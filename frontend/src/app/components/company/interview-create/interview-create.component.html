@@ -49,9 +49,47 @@
 
 
   <!-- step 2 -->
-  <ng-template *ngIf="step === 2">
+  <div class="clearfix" *ngIf="step === 2" id="interview-build-question">
+    <h2>Create your Questions</h2>
+    <hr />
+    <form #fStep2="ngForm" novalidate (ngSubmit)="submit(fStep2)">
+      <div class="clearfix">
+        <!-- Create new questions -->
+        <div class="col-md-6">
+          <div class="clearfix form-inline">
+                <div class="clearfix">
+                  <textarea
+                    class="form-control full-width"
+                    placeholder="Type your questions here"
+                    name="question"
+                  >
+                  </textarea>             
+              
+                <button type="button" class="btn btn-default full-width mleft0 mright0">Add Question<i class="fa fa-plus"></i></button>
+              </div>
+              <div class="clearfix">
+                <div class="question-created-lists">
+                </div>
+              </div>
+          </div>         
+        </div>
 
-  </ng-template>
+        <!-- set of questions -->
+        <div class="col-md-6"></div>
+      </div>
+
+      <!-- submit btn -->
+      <div class="clearfix">
+        <button class="btn btn-primary waves-effect waves-light" type="submit" name="action">Continue <i class="fa fa-arrow-circle-right"></i></button>
+        
+        <button *ngIf="step > 1" class="btn waves-effect waves-light" type="button" name="action">Back <i class="fa fa-arrow-circle-left"></i></button>
+        
+        
+      </div>
+      
+    </form>
+  </div>
+ 
   <!-- /step 2 -->
 
   <!-- step 2 -->
